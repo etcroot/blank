@@ -46,14 +46,29 @@ client.on("message", (message) => {
 });
 
 client.on("message", (message) => {
-	if (!message.content.startsWith(config.prefix) || message.author.bot) return;
-	if (message.content.startsWith(config.prefix + "help")) {
-	const embed = new RichEmbed()
+  if (!message.content.startsWith(config.prefix) || message.author.bot) return;
+  if (message.content.startsWith(config.prefix + "help")) {
+  const embed = new RichEmbed()
       .setTitle('Commands & Functions')
       .setColor(0xFF0000)
       .setDescription('functions and stuff, pretty cool huh?')
-      .addField('General Commands', '**bhelp** - *get help* \n**bping** - *get bot ping.* \n**bwet** - *just be wet dude.* \n**bdick** - *just be a dick dude.*')
+      .addField('General Commands', '**bhelp** - *get help* \n**binfo** - *get bot info.* \n**bping** - *get bot ping.* \n**bwet** - *just be wet dude.* \n**bdick** - *just be a dick dude.*')
       .addField('Random Commands', '**bsay** - *make the bot repeat your sentence.* \n**blol** - *whats so funny?* \n**blob** - *just a blob.*')
+      .setFooter('by .666#6666');
+    message.channel.send(embed);
+  }
+});
+
+client.on("message", (message) => {
+  if (!message.content.startsWith(config.prefix) || message.author.bot) return;
+  if (message.content.startsWith(config.prefix + "info")) {
+  const embed = new RichEmbed()
+      .setTitle('Bot Information')
+      .setColor(0xFF0000)
+      .setDescription('Information about Blank')
+      .addField('Bot Creator', '.666#6666 / Trashbxg', true)
+      .addField('Library', 'Discord.js', true)
+      .addField('Bot Version', '1.6', true)
       .setFooter('by .666#6666');
     message.channel.send(embed);
   }
@@ -64,7 +79,7 @@ client.on("message", (message) => {
 client.on('message', async message => {
     if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
-	if (message.content.startsWith(config.prefix + "wet")) {
+  if (message.content.startsWith(config.prefix + "wet")) {
         try {
             await message.react('💦');
         }
@@ -77,7 +92,7 @@ client.on('message', async message => {
 client.on('message', async message => {
     if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
-	if (message.content.startsWith(config.prefix + "dick")) {
+  if (message.content.startsWith(config.prefix + "dick")) {
         try {
             await message.react('🍆');
         }
@@ -90,7 +105,7 @@ client.on('message', async message => {
 client.on('message', async message => {
     if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
-	if (message.content.startsWith(config.prefix + "wet")) {
+  if (message.content.startsWith(config.prefix + "wet")) {
         try {
             await message.react('💦');
         }
@@ -127,7 +142,7 @@ if(command === "lob") {
 
 if (command === 'hook') {
 if(message.author.id !== config.ownerID) return;
-const hook = new Discord.WebhookClient('CHANNEL HOOK ID', 'CHANNEL HOOK TOKEN');
+const hook = new Discord.WebhookClient('ID', 'TOKEN');
 const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase();
 const sayMessage = args.join(" ");
